@@ -527,3 +527,82 @@ footer > div { display: flex; gap: 24px; }
 
     .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Inner pages */
+.inner-page { background: #f7f6f2; }
+.inner-header { color: #fff; background: var(--ink); padding-top: 20px; padding-bottom: 20px; }
+.inner-header nav a[aria-current="page"] { border-bottom: 1px solid currentColor; }
+.page-hero { min-height: 100svh; padding: clamp(170px, 18vw, 285px) var(--page-pad) 90px; background: #f7f6f2; }
+.page-hero h1 { max-width: 1250px; margin: 0; font-family: var(--serif); font-size: clamp(76px, 10.2vw, 176px); font-weight: 400; line-height: .84; letter-spacing: -.045em; }
+.page-hero h1 em { font-weight: 400; }
+.page-hero-copy { display: grid; grid-template-columns: 1fr .55fr; gap: 9vw; max-width: 800px; margin: clamp(70px, 10vw, 160px) 0 0 auto; }
+.page-hero-copy p { margin: 0; font-size: clamp(16px, 1.32vw, 22px); line-height: 1.55; }
+.page-hero-copy .page-index { font-family: var(--mono); font-size: 12px; line-height: 1.8; text-transform: uppercase; }
+.about-statement { padding: clamp(90px, 11vw, 190px) var(--page-pad); }
+.about-statement > h2 { max-width: 1320px; margin: 0; font-family: var(--serif); font-size: clamp(48px, 6.15vw, 106px); font-weight: 400; line-height: 1.02; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4vw; margin-top: clamp(100px, 13vw, 210px); }
+.values-grid article { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.32); }
+.values-grid span, .discipline-card > span, .join-card > span { font-family: var(--mono); font-size: 12px; }
+.values-grid h3 { margin: 52px 0 18px; font-family: var(--serif); font-size: 40px; font-weight: 400; }
+.values-grid p { max-width: 360px; color: rgba(255,255,255,.72); line-height: 1.55; }
+.principal-profile { display: grid; grid-template-columns: .85fr 1.15fr; gap: 9vw; padding: clamp(100px, 13vw, 220px) var(--page-pad); }
+.principal-mark { display: grid; place-items: center; aspect-ratio: 1; color: #fff; background: #a2573f; font-family: var(--serif); font-size: clamp(90px, 13vw, 220px); }
+.principal-profile h2 { margin: 0 0 16px; font-family: var(--serif); font-size: clamp(56px, 6vw, 104px); font-weight: 400; line-height: 1; }
+.credentials { margin-bottom: 55px !important; font-family: var(--mono); font-size: 12px !important; text-transform: uppercase; }
+.principal-profile > div:last-child > p { max-width: 680px; margin: 0 0 24px; font-size: clamp(16px, 1.2vw, 20px); line-height: 1.65; }
+.principal-profile .text-link { margin-top: 28px; }
+.team-section { padding: clamp(90px, 11vw, 180px) var(--page-pad); }
+.team-heading { display: grid; grid-template-columns: 1.2fr .65fr; gap: 8vw; align-items: end; margin-bottom: clamp(70px, 9vw, 145px); }
+.team-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(60px, 6.4vw, 110px); font-weight: 400; line-height: .93; }
+.team-heading > p { max-width: 500px; margin: 0; line-height: 1.6; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px 18px; }
+.team-card { min-width: 0; padding-top: 16px; border-top: 1px solid #777; }
+.team-monogram { display: grid; place-items: center; aspect-ratio: 4 / 5; margin-bottom: 22px; color: #fff; background: var(--ink); font-family: var(--serif); font-size: clamp(55px, 6vw, 95px); }
+.team-card:nth-child(2) .team-monogram { background: #7c7669; }
+.team-card:nth-child(3) .team-monogram { background: #3e5261; }
+.team-card:nth-child(4) .team-monogram { background: #8b4939; }
+.team-card h3 { min-height: 2.1em; margin: 0 0 10px; font-family: var(--serif); font-size: clamp(25px, 2vw, 34px); font-weight: 400; line-height: 1.05; }
+.team-card p { min-height: 2.8em; margin: 0 0 28px; font-size: 13px; line-height: 1.45; }
+.team-card a { font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+.discipline-card, .join-card { display: flex; min-height: 360px; flex-direction: column; padding: 24px; color: #fff; border: 0; background: #565e54; }
+.discipline-card:nth-child(4n + 2) { background: #4a5a63; }
+.discipline-card:nth-child(4n + 3) { background: #75584c; }
+.discipline-card h3, .join-card h3 { margin-top: auto; min-height: 0; }
+.discipline-card p, .join-card p { min-height: 0; }
+.join-card { background: #a2573f; }
+.page-cta { background: #fff; }
+
+.case-hero { background: var(--warm); }
+.case-study { display: grid; grid-template-columns: 70px 1fr; gap: 0 24px; padding: clamp(85px, 10vw, 170px) var(--page-pad); scroll-margin-top: 90px; }
+.case-number { padding-top: 16px; font-family: var(--mono); font-size: 13px; }
+.case-title h2 { margin: 0; font-family: var(--serif); font-size: clamp(75px, 10vw, 170px); font-weight: 400; line-height: .85; }
+.case-hero-image { grid-column: 1 / -1; aspect-ratio: 2 / 1; margin: clamp(60px, 7vw, 115px) 0 0; overflow: hidden; background: #ddd; }
+.case-hero-image img { height: 100%; object-fit: cover; }
+.case-facts { grid-column: 2; display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; margin-top: clamp(55px, 8vw, 130px); }
+.case-facts dl { margin: 0; }
+.case-facts dl div { padding: 14px 0 22px; border-top: 1px solid currentColor; }
+.case-facts dt { margin-bottom: 7px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+.case-facts dd { margin: 0; }
+.case-facts h3 { margin: 0 0 26px; font-family: var(--serif); font-size: clamp(36px, 3.5vw, 60px); font-weight: 400; line-height: 1; }
+.case-facts p { max-width: 650px; font-size: clamp(16px, 1.18vw, 20px); line-height: 1.65; }
+.next-project { padding: clamp(100px, 13vw, 220px) var(--page-pad); text-align: center; }
+.next-project h2 { margin: 0 auto 55px; font-family: var(--serif); font-size: clamp(54px, 7vw, 120px); font-weight: 400; line-height: .95; }
+
+@media (max-width: 900px) {
+    .page-hero-copy, .principal-profile, .team-heading, .case-facts { grid-template-columns: 1fr; }
+    .page-hero-copy { margin-left: 0; }
+    .values-grid { grid-template-columns: 1fr; }
+    .values-grid h3 { margin-top: 28px; }
+    .principal-mark { max-width: 540px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .case-facts { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+    .page-hero { padding-top: 150px; }
+    .page-hero h1 { font-size: clamp(65px, 20vw, 95px); }
+    .team-grid { grid-template-columns: 1fr; }
+    .discipline-card, .join-card { min-height: 290px; }
+    .case-study { grid-template-columns: 34px 1fr; }
+    .case-hero-image { aspect-ratio: 4 / 5; }
+}
