@@ -43,3 +43,17 @@ projectFilters.forEach((filterButton) => filterButton.addEventListener('click', 
         item.hidden = selectedCategory !== 'all' && !categories.includes(selectedCategory);
     });
 }));
+
+document.querySelector('[data-contact-form]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = data.get('name');
+    const email = data.get('email');
+    const company = data.get('company') || 'Not provided';
+    const projectType = data.get('projectType') || 'Not specified';
+    const message = data.get('message');
+    const subject = encodeURIComponent(`Project inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\nProject type: ${projectType}\n\nProject details:\n${message}`);
+    window.location.href = `mailto:architects@lumbao.com?subject=${subject}&body=${body}`;
+});
