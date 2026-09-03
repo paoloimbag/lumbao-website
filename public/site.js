@@ -26,3 +26,20 @@ lightbox?.querySelector('.lightbox-close')?.addEventListener('click', () => ligh
 lightbox?.addEventListener('click', (event) => {
     if (event.target === lightbox) lightbox.close();
 });
+
+const projectFilters = document.querySelectorAll('[data-project-filter]');
+const portfolioItems = document.querySelectorAll('[data-project-category]');
+
+projectFilters.forEach((filterButton) => filterButton.addEventListener('click', () => {
+    const selectedCategory = filterButton.dataset.projectFilter;
+
+    projectFilters.forEach((button) => {
+        button.classList.toggle('is-active', button === filterButton);
+        button.setAttribute('aria-pressed', String(button === filterButton));
+    });
+
+    portfolioItems.forEach((item) => {
+        const categories = item.dataset.projectCategory.split(' ');
+        item.hidden = selectedCategory !== 'all' && !categories.includes(selectedCategory);
+    });
+}));
