@@ -596,6 +596,110 @@ nav a:focus-visible {
 .inner-page { background: #f7f6f2; }
 .inner-header { color: #fff; background: var(--ink); padding-top: 20px; padding-bottom: 20px; }
 .inner-header nav a[aria-current="page"] { border-bottom: 1px solid currentColor; }
+
+/* Internal hero atmosphere */
+.page-hero,
+.project-detail-hero,
+.projects-page-hero,
+.services-page-hero,
+.contact-page-hero,
+.gallery-page-hero,
+.careers-hero {
+    --hero-line: rgba(17, 22, 18, .14);
+    --hero-glow: rgba(151, 100, 75, .18);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.page-hero::before,
+.project-detail-hero::before,
+.projects-page-hero::before,
+.services-page-hero::before,
+.contact-page-hero::before,
+.gallery-page-hero::before,
+.careers-hero::before {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    content: '';
+    background:
+        radial-gradient(circle at 78% 28%, var(--hero-glow), transparent 31%),
+        linear-gradient(var(--hero-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hero-line) 1px, transparent 1px);
+    background-size: auto, clamp(70px, 7vw, 120px) clamp(70px, 7vw, 120px), clamp(70px, 7vw, 120px) clamp(70px, 7vw, 120px);
+    opacity: .55;
+    -webkit-mask-image: linear-gradient(110deg, transparent 6%, #000 48%, #000 100%);
+    mask-image: linear-gradient(110deg, transparent 6%, #000 48%, #000 100%);
+}
+
+.page-hero::after,
+.project-detail-hero::after,
+.projects-page-hero::after,
+.services-page-hero::after,
+.contact-page-hero::after,
+.gallery-page-hero::after,
+.careers-hero::after {
+    position: absolute;
+    z-index: -1;
+    top: 14%;
+    right: -8%;
+    width: clamp(330px, 38vw, 660px);
+    aspect-ratio: 1;
+    content: '';
+    border: 1px solid var(--hero-line);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 clamp(35px, 5vw, 85px) rgba(255,255,255,.035), inset 0 0 0 clamp(36px, 5.1vw, 87px) var(--hero-line);
+    animation: hero-drift 18s ease-in-out infinite alternate;
+}
+
+.page-hero > *,
+.project-detail-hero > *,
+.projects-page-hero > *,
+.services-page-hero > *,
+.contact-page-hero > *,
+.gallery-page-hero > *,
+.careers-hero > * { position: relative; z-index: 1; }
+
+.page-hero > .eyebrow,
+.project-detail-hero > .eyebrow,
+.projects-page-hero > .eyebrow,
+.services-page-hero > .eyebrow,
+.contact-page-hero > .eyebrow,
+.gallery-page-hero > .eyebrow,
+.careers-hero > .eyebrow {
+    display: inline-flex;
+    padding: 8px 13px;
+    border: 1px solid currentColor;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.about-hero { --hero-glow: rgba(80, 105, 94, .2); }
+.case-hero { --hero-glow: rgba(178, 115, 72, .2); }
+.projects-page-hero { --hero-glow: rgba(97, 121, 130, .2); }
+.services-page-hero { --hero-glow: rgba(136, 91, 69, .2); }
+.contact-page-hero { --hero-glow: rgba(71, 102, 119, .2); }
+.careers-hero { --hero-glow: rgba(93, 114, 79, .22); }
+.gallery-page-hero { --hero-line: rgba(255,255,255,.12); --hero-glow: rgba(156, 104, 77, .28); }
+.gallery-page-hero::before { opacity: .38; }
+
+.page-hero h1 em,
+.project-detail-hero h1 em,
+.projects-page-hero h1 em,
+.services-page-hero h1 em,
+.contact-page-hero h1 em,
+.careers-hero h1 em { color: #8d5a44; }
+.gallery-page-hero h1 em { color: #d1a088; }
+
+@keyframes hero-drift {
+    from { transform: translate3d(0, 0, 0) rotate(-7deg); }
+    to { transform: translate3d(-28px, 22px, 0) rotate(3deg); }
+}
 .page-hero { padding: clamp(155px, 13vw, 215px) var(--page-pad) 85px; background: #f7f6f2; }
 .page-hero h1 { max-width: 1250px; margin: 0; font-family: var(--serif); font-size: clamp(76px, 10.2vw, 176px); font-weight: 400; line-height: .84; letter-spacing: -.045em; }
 .page-hero h1 em { font-weight: 400; }
@@ -846,4 +950,14 @@ nav a:focus-visible {
     .job-card summary b { grid-column: 2; }
     .job-content { grid-template-columns: 1fr; padding-left: 57px; }
     .job-content .button { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-hero::after,
+    .project-detail-hero::after,
+    .projects-page-hero::after,
+    .services-page-hero::after,
+    .contact-page-hero::after,
+    .gallery-page-hero::after,
+    .careers-hero::after { animation: none; }
 }
