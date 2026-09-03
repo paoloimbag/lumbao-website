@@ -749,6 +749,38 @@ footer > div { display: flex; gap: 24px; }
 .gallery-source a { border-bottom: 1px solid currentColor; }
 .projects-page-links { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
 
+/* Careers page */
+.careers-hero { padding: clamp(155px, 13vw, 215px) var(--page-pad) clamp(75px, 8vw, 125px); background: var(--warm); }
+.careers-hero h1 { margin: 0; font-family: var(--serif); font-size: clamp(76px, 10.5vw, 180px); font-weight: 400; line-height: .84; letter-spacing: -.045em; }
+.careers-hero h1 em { font-weight: 400; }
+.careers-hero > div { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: end; max-width: 860px; margin: clamp(55px, 7vw, 105px) 0 0 auto; }
+.careers-hero > div p { max-width: 630px; margin: 0; font-size: clamp(17px, 1.4vw, 23px); line-height: 1.55; }
+.career-culture { padding: clamp(100px, 13vw, 210px) var(--page-pad); color: #fff; background: var(--ink); }
+.career-culture h2, .career-openings h2, .career-general h2 { margin: 0; font-family: var(--serif); font-size: clamp(54px, 6vw, 102px); font-weight: 400; line-height: .95; }
+.career-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4vw; margin-top: clamp(80px, 10vw, 155px); }
+.career-values article { padding-top: 20px; border-top: 1px solid rgba(255,255,255,.35); }
+.career-values span, .job-card summary > span { font-family: var(--mono); font-size: 11px; }
+.career-values h3 { margin: 45px 0 16px; font-family: var(--serif); font-size: 37px; font-weight: 400; }
+.career-values p { max-width: 390px; margin: 0; color: rgba(255,255,255,.7); line-height: 1.6; }
+.career-openings { padding: clamp(100px, 13vw, 210px) var(--page-pad); background: #f7f6f2; }
+.career-openings-heading { display: grid; grid-template-columns: 1fr .55fr; gap: 8vw; align-items: end; margin-bottom: clamp(70px, 9vw, 140px); }
+.career-openings-heading > p { max-width: 520px; margin: 0; line-height: 1.6; }
+.job-card { border-top: 1px solid currentColor; }
+.job-card:last-child { border-bottom: 1px solid currentColor; }
+.job-card summary { display: grid; grid-template-columns: 50px 1fr auto; gap: 25px; align-items: baseline; padding: 28px 0; cursor: pointer; list-style: none; }
+.job-card summary::-webkit-details-marker { display: none; }
+.job-card summary h3 { margin: 0 0 7px; font-family: var(--serif); font-size: clamp(31px, 3.2vw, 54px); font-weight: 400; }
+.job-card summary p, .job-card summary b { margin: 0; font-family: var(--mono); font-size: 10px; font-weight: 400; text-transform: uppercase; }
+.job-card summary b::after { content: ' +'; }
+.job-card[open] summary b::after { content: ' −'; }
+.job-content { display: grid; grid-template-columns: 1fr 1fr; gap: 35px 6vw; padding: 15px 0 55px 75px; }
+.job-content h4 { margin: 0 0 14px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+.job-content p, .job-content li { line-height: 1.65; }
+.job-content ul { margin: 0; padding-left: 18px; }
+.job-content .button { grid-column: 1 / -1; justify-self: start; }
+.career-general { display: grid; grid-template-columns: 1fr .7fr; gap: 10vw; align-items: end; padding: clamp(100px, 13vw, 210px) var(--page-pad); background: var(--warm); }
+.career-general > div:last-child p { max-width: 520px; margin: 0 0 45px; font-size: 18px; line-height: 1.6; }
+
 @media (max-width: 900px) {
     .page-hero-copy, .principal-profile, .team-heading, .case-facts { grid-template-columns: 1fr; }
     .page-hero-copy { margin-left: 0; }
@@ -764,6 +796,9 @@ footer > div { display: flex; gap: 24px; }
     .service-directory-intro { position: static; }
     .services-hero-copy { grid-template-columns: 1fr; margin-left: 0; }
     .gallery-page-hero > div { grid-template-columns: 1fr; margin-left: 0; }
+    .careers-hero > div, .career-openings-heading, .career-general { grid-template-columns: 1fr; }
+    .careers-hero > div { margin-left: 0; }
+    .career-values { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -797,4 +832,10 @@ footer > div { display: flex; gap: 24px; }
     .gallery-tile-wide { grid-column: auto; }
     .gallery-tile-wide button { aspect-ratio: 4 / 3; }
     .gallery-archive-heading { align-items: flex-start; flex-direction: column; }
+    .careers-hero { padding-top: 150px; }
+    .careers-hero h1 { font-size: clamp(65px, 20vw, 96px); }
+    .job-card summary { grid-template-columns: 32px 1fr; }
+    .job-card summary b { grid-column: 2; }
+    .job-content { grid-template-columns: 1fr; padding-left: 57px; }
+    .job-content .button { grid-column: auto; }
 }
