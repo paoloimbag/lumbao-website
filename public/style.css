@@ -513,6 +513,58 @@ footer > div { display: flex; gap: 24px; }
     footer { grid-template-columns: 1fr; gap: 18px; }
 }
 
+/* Dedicated project pages */
+.project-detail-hero { min-height: 92svh; padding: clamp(175px, 17vw, 270px) var(--page-pad) clamp(80px, 10vw, 160px); background: var(--warm); }
+.project-detail-hero h1 { margin: 0; font-family: var(--serif); font-size: clamp(90px, 14vw, 230px); font-weight: 400; line-height: .76; letter-spacing: -.05em; }
+.project-detail-hero h1 em { font-weight: 400; }
+.project-detail-intro { display: grid; grid-template-columns: 1.2fr .8fr; gap: 8vw; max-width: 980px; margin: clamp(80px, 11vw, 175px) 0 0 auto; }
+.project-detail-intro > p { margin: 0; font-family: var(--serif); font-size: clamp(28px, 2.8vw, 46px); line-height: 1.1; }
+.project-detail-intro dl { margin: 0; }
+.project-detail-intro dl div { padding: 12px 0 17px; border-top: 1px solid currentColor; }
+.project-detail-intro dt { margin-bottom: 6px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+.project-detail-intro dd { margin: 0; font-size: 14px; }
+.project-lead-image { height: min(74vw, 1100px); margin: 0; overflow: hidden; background: #ddd; }
+.project-lead-image img { height: 100%; object-fit: cover; }
+.project-narrative { display: grid; grid-template-columns: .45fr 1fr .85fr; gap: 5vw; padding: clamp(100px, 13vw, 210px) var(--page-pad); }
+.project-narrative h2 { margin: 0; font-family: var(--serif); font-size: clamp(48px, 5.4vw, 92px); font-weight: 400; line-height: .98; }
+.project-narrative > div p { margin: 0 0 24px; font-size: clamp(16px, 1.18vw, 20px); line-height: 1.65; }
+.detail-gallery { padding: clamp(85px, 10vw, 165px) var(--page-pad); color: #fff; background: var(--ink); }
+.gallery-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: 60px; }
+.gallery-heading p { margin: 0; }
+.gallery-heading > p:last-child { color: rgba(255,255,255,.58); font-size: 13px; }
+.detail-gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.detail-gallery-grid button { aspect-ratio: 4 / 3; margin: 0; padding: 0; overflow: hidden; border: 0; background: #222; cursor: zoom-in; }
+.detail-gallery-grid button:first-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+.detail-gallery-grid img { height: 100%; object-fit: cover; transition: transform .55s ease; }
+.detail-gallery-grid button:hover img { transform: scale(1.025); }
+.dundas-gallery .crop-detail img { object-position: 20% 78%; transform: scale(1.9); }
+.dundas-gallery .crop-top img { object-position: 55% 10%; transform: scale(1.7); }
+.dundas-gallery .crop-detail:hover img { transform: scale(1.95); }
+.dundas-gallery .crop-top:hover img { transform: scale(1.75); }
+.wasaga-detail-gallery button:last-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+.project-pagination { display: flex; justify-content: space-between; gap: 30px; padding: 48px var(--page-pad); background: #fff; font-family: var(--mono); font-size: 12px; text-transform: uppercase; }
+.project-pagination a { padding-bottom: 5px; border-bottom: 1px solid currentColor; }
+.lightbox { width: min(94vw, 1500px); max-width: none; height: min(92vh, 1000px); padding: 56px 20px 20px; border: 0; color: #fff; background: #090b09; }
+.lightbox::backdrop { background: rgba(0,0,0,.88); }
+.lightbox img { height: 100%; object-fit: contain; }
+.lightbox-close { position: absolute; top: 18px; right: 22px; padding: 0; border: 0; color: #fff; background: none; font-family: var(--mono); text-transform: uppercase; cursor: pointer; }
+
+@media (max-width: 900px) {
+    .project-detail-intro, .project-narrative { grid-template-columns: 1fr; }
+    .project-detail-intro { margin-left: 0; }
+    .project-narrative { gap: 35px; }
+}
+
+@media (max-width: 620px) {
+    .project-detail-hero { padding-top: 150px; }
+    .project-detail-hero h1 { font-size: clamp(74px, 23vw, 110px); }
+    .project-lead-image { height: 110vw; }
+    .detail-gallery-grid { grid-template-columns: 1fr; }
+    .detail-gallery-grid button:first-child, .wasaga-detail-gallery button:last-child { grid-column: auto; aspect-ratio: 4 / 3; }
+    .gallery-heading { align-items: flex-start; flex-direction: column; }
+    .project-pagination { align-items: flex-start; flex-direction: column; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .hero::before,
