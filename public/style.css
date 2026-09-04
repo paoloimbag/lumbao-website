@@ -757,7 +757,7 @@ body.menu-open { overflow: hidden; }
 .contact-page-hero,
 .gallery-page-hero,
 .careers-hero {
-    --hero-index: 'PROJECT';
+    --hero-index: 'PROJECT / 01';
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid rgba(17, 22, 18, .24);
@@ -800,13 +800,13 @@ body.menu-open { overflow: hidden; }
     text-transform: uppercase;
 }
 
-.about-hero { --hero-index: 'STUDIO / 01'; }
-.case-hero { --hero-index: 'STORIES / 02'; }
-.projects-page-hero { --hero-index: 'INDEX / 03'; }
-.services-page-hero { --hero-index: 'PRACTICE / 04'; }
-.contact-page-hero { --hero-index: 'HELLO / 05'; }
-.careers-hero { --hero-index: 'PEOPLE / 06'; }
-.gallery-page-hero { --hero-index: 'ARCHIVE / 07'; border-color: rgba(255,255,255,.2); }
+.projects-page-hero { --hero-index: 'INDEX / 01'; }
+.case-hero { --hero-index: 'STORIES / 01'; }
+.about-hero { --hero-index: 'STUDIO / 02'; }
+.services-page-hero { --hero-index: 'PRACTICE / 03'; }
+.gallery-page-hero { --hero-index: 'ARCHIVE / 04'; border-color: rgba(255,255,255,.2); }
+.careers-hero { --hero-index: 'PEOPLE / 05'; }
+.contact-page-hero { --hero-index: 'HELLO / 06'; }
 
 .page-hero h1 em,
 .project-detail-hero h1 em,
@@ -830,6 +830,8 @@ body.menu-open { overflow: hidden; }
 .values-grid p { max-width: 360px; color: rgba(255,255,255,.72); line-height: 1.55; }
 .principal-profile { display: grid; grid-template-columns: .85fr 1.15fr; gap: 9vw; padding: clamp(100px, 13vw, 220px) var(--page-pad); }
 .principal-mark { display: grid; place-items: center; aspect-ratio: 1; color: #fff; background: #a2573f; font-family: var(--serif); font-size: clamp(90px, 13vw, 220px); }
+.principal-portrait { overflow: hidden; aspect-ratio: 4 / 5; margin: 0; }
+.principal-portrait img, .team-portrait { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .principal-profile h2 { margin: 0 0 16px; font-family: var(--serif); font-size: clamp(56px, 6vw, 104px); font-weight: 400; line-height: 1; }
 .credentials { margin-bottom: 55px !important; font-family: var(--mono); font-size: 12px !important; text-transform: uppercase; }
 .principal-profile > div:last-child > p { max-width: 680px; margin: 0 0 24px; font-size: clamp(16px, 1.2vw, 20px); line-height: 1.65; }
@@ -840,19 +842,20 @@ body.menu-open { overflow: hidden; }
 .team-heading > p { max-width: 500px; margin: 0; line-height: 1.6; }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px 18px; }
 .team-card { min-width: 0; padding-top: 16px; border-top: 1px solid #777; }
-.team-monogram { display: grid; place-items: center; aspect-ratio: 4 / 5; margin-bottom: 22px; color: #fff; background: var(--ink); font-family: var(--serif); font-size: clamp(55px, 6vw, 95px); }
+.team-monogram { display: grid; overflow: hidden; place-items: center; aspect-ratio: 4 / 5; margin-bottom: 22px; color: #fff; background: var(--ink); font-family: var(--serif); font-size: clamp(55px, 6vw, 95px); }
 .team-card:nth-child(2) .team-monogram { background: #7c7669; }
 .team-card:nth-child(3) .team-monogram { background: #3e5261; }
 .team-card:nth-child(4) .team-monogram { background: #8b4939; }
 .team-card h3 { min-height: 2.1em; margin: 0 0 10px; font-family: var(--serif); font-size: clamp(25px, 2vw, 34px); font-weight: 400; line-height: 1.05; }
 .team-card p { min-height: 2.8em; margin: 0 0 28px; font-size: 13px; line-height: 1.45; }
 .team-card a { font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
-.discipline-card, .join-card { display: flex; min-height: 360px; flex-direction: column; padding: 24px; color: #fff; border: 0; background: #565e54; }
-.discipline-card:nth-child(4n + 2) { background: #4a5a63; }
-.discipline-card:nth-child(4n + 3) { background: #75584c; }
-.discipline-card h3, .join-card h3 { margin-top: auto; min-height: 0; }
-.discipline-card p, .join-card p { min-height: 0; }
-.join-card { background: #a2573f; }
+.discipline-card, .join-card { display: block; min-height: 0; padding: 16px 0 0; color: inherit; border-top: 1px solid #777; background: transparent; }
+.discipline-card > span, .join-card > span { display: grid; place-items: center; aspect-ratio: 4 / 5; margin-bottom: 22px; color: #fff; background: #565e54; font-family: var(--serif); font-size: clamp(55px, 6vw, 95px); }
+.discipline-card:nth-child(4n + 2) > span { background: #4a5a63; }
+.discipline-card:nth-child(4n + 3) > span { background: #75584c; }
+.discipline-card h3, .join-card h3 { min-height: 2.1em; margin: 0 0 10px; }
+.discipline-card p, .join-card p { min-height: 2.8em; }
+.join-card > span { background: #a2573f; }
 .page-cta { background: #fff; }
 
 .case-hero { background: var(--warm); }

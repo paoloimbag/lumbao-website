@@ -57,6 +57,36 @@ function initHero() {
 }
 
 function initRevealAnimations() {
+    const innerMain = document.querySelector('.inner-page main');
+    if (innerMain) {
+        Array.from(innerMain.children).forEach((block) => {
+            if (block.matches('figure')) {
+                block.classList.add('reveal');
+                return;
+            }
+
+            if (block.matches('section')) {
+                Array.from(block.children).forEach((element) => element.classList.add('reveal'));
+            }
+        });
+
+        const itemGroups = innerMain.querySelectorAll([
+            '.values-grid',
+            '.team-grid',
+            '.portfolio-grid',
+            '.service-directory-list',
+            '.career-values',
+            '.job-list',
+            '.gallery-mosaic',
+            '.detail-gallery-grid'
+        ].join(','));
+
+        itemGroups.forEach((group) => {
+            group.classList.remove('reveal');
+            Array.from(group.children).forEach((item) => item.classList.add('reveal'));
+        });
+    }
+
     const elements = document.querySelectorAll('.reveal');
     if (!elements.length) return;
 
@@ -74,7 +104,14 @@ function initRevealAnimations() {
             }
         });
     }, { threshold: .12 });
-    elements.forEach((element) => observer.observe(element));
+
+    // Auto-added reveal classes need one painted frame in their initial state
+    // before visible elements transition in.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            elements.forEach((element) => observer.observe(element));
+        });
+    });
 }
 
 function initLightbox() {
