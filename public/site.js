@@ -3,16 +3,33 @@ function initNavigation() {
     const nav = document.querySelector('#site-nav');
     if (!menuButton || !nav) return;
 
+    const setMenuState = (isOpen, returnFocus = false) => {
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.textContent = isOpen ? 'Close' : 'Menu';
+        nav.classList.toggle('is-open', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+
+        if (isOpen) {
+            requestAnimationFrame(() => nav.querySelector('a')?.focus());
+        } else if (returnFocus) {
+            menuButton.focus();
+        }
+    };
+
     menuButton.addEventListener('click', () => {
         const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-        menuButton.setAttribute('aria-expanded', String(!isOpen));
-        nav.classList.toggle('is-open', !isOpen);
+        setMenuState(!isOpen);
     });
 
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-        menuButton.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('is-open');
+        setMenuState(false);
     }));
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+            setMenuState(false, true);
+        }
+    });
 }
 
 function initHero() {
