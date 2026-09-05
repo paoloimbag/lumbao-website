@@ -18,12 +18,12 @@
     <header class="site-header inner-header"><a class="brand" href="/"><img src="/assets/logo.svg" alt=""><span>Lumbao
                 Architects</span></a><button class="menu-toggle" type="button" aria-expanded="false"
             aria-controls="site-nav">Menu</button>
-        <nav id="site-nav" aria-label="Main navigation"><a aria-current="page" href="/projects.html">Projects</a><a href="/about.html">About
-                us</a><a href="/services.html">Services</a><a href="/gallery.html">Gallery</a><a href="/careers.html">Careers</a><a
-                href="/contact.html">Contact</a></nav>
+        <nav id="site-nav" aria-label="Main navigation"><a aria-current="page" href="/projects">Projects</a><a href="/about">About
+                us</a><a href="/services">Services</a><a href="/gallery">Gallery</a><a href="/careers">Careers</a><a
+                href="/contact">Contact</a></nav>
     </header>
     <main id="main-content">
-        <section class="project-detail-hero"><a class="project-breadcrumb" href="/projects.html">← All projects</a>
+        <section class="project-detail-hero"><a class="project-breadcrumb" href="/projects">← All projects</a>
             <p class="eyebrow">Industrial · Ontario</p>
             <h1>Elm</h1>
             <div class="project-detail-intro">
@@ -41,7 +41,7 @@
                 </dl>
             </div>
         </section>
-        <figure class="project-lead-image"><img loading="lazy" src="/assets/project-elm.avif"
+        <figure class="project-lead-image"><img loading="eager" fetchpriority="high" src="/assets/project-elm.avif"
                 alt="Elm industrial facility"></figure>
         <section class="project-narrative">
             <p class="eyebrow">The idea</p>
@@ -65,14 +65,14 @@
                         alt="Elm entry detail"></button><button data-lightbox class="crop-right"><img loading="lazy"
                         src="/assets/project-elm.avif" alt="Elm building envelope detail"></button></div>
         </section>
-        <nav class="project-pagination" aria-label="Project navigation"><a href="/project-islington.html">← Previous:
-                Islington</a><a href="/projects.html">All projects →</a></nav>
+        <nav class="project-pagination" aria-label="Project navigation"><a href="/project-islington">← Previous:
+                Islington</a><a href="/projects">All projects →</a></nav>
     </main>
     <dialog class="lightbox"><button class="lightbox-close" aria-label="Close image">Close</button><img loading="lazy"
             alt=""></dialog>
     <footer class="site-footer">
         <div class="footer-callout">
-            <p class="eyebrow">Start a conversation</p><a href="/contact.html"><span>Let&rsquo;s make something</span>
+            <p class="eyebrow">Start a conversation</p><a href="/contact"><span>Let&rsquo;s make something</span>
                 <em>lasting.</em><b aria-hidden="true">↗</b></a>
         </div>
         <div class="footer-main"><a class="brand" href="/"><img src="/assets/logo.svg" alt=""><span>Lumbao
@@ -81,9 +81,9 @@
                 <p>Toronto studio</p>
                 <address>121 Lebovic Avenue, Unit C4<br>Toronto, Ontario M1L 0J2</address>
             </div>
-            <nav class="footer-nav" aria-label="Footer navigation"><a href="/projects.html">Projects</a><a
-                    href="/gallery.html">Gallery</a><a href="/about.html">About</a><a
-                    href="/services.html">Services</a><a href="/careers.html">Careers</a></nav>
+            <nav class="footer-nav" aria-label="Footer navigation"><a href="/projects">Projects</a><a
+                    href="/gallery">Gallery</a><a href="/about">About</a><a
+                    href="/services">Services</a><a href="/careers">Careers</a></nav>
             <div class="footer-connect">
                 <p>Connect</p><a href="mailto:architects@lumbao.com">architects@lumbao.com</a><a
                     href="tel:+14162888831">+1 416 288 8831</a><a href="https://www.instagram.com/lumbaoarchitects/"
@@ -96,7 +96,7 @@
             <p>Architecture shaped with care and clarity.</p><a href="#main-content">Back to top ↑</a>
         </div>
     </footer>
-    <script src="/site.js"></script>
+    <script defer src="/site.js"></script>
 </body>
 
 </html>

@@ -738,7 +738,7 @@ body.menu-open { overflow: hidden; }
     .hero-copy { animation: none; }
 
     .hero {
-        background: url('/assets/raw-5.png') center / cover no-repeat;
+        background: url('/assets/raw-5-1280.webp') center / cover no-repeat;
     }
 
     .reveal { opacity: 1; transform: none; transition: none; }
@@ -1068,4 +1068,130 @@ body.menu-open { overflow: hidden; }
     .job-card summary b { grid-column: 2; }
     .job-content { grid-template-columns: 1fr; padding-left: 57px; }
     .job-content .button { grid-column: auto; }
+}
+
+/* Clear entry points and consistent project interactions. */
+.hero-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    min-height: 48px;
+    margin-top: clamp(48px, 4.2vw, 72px);
+    padding: 14px 20px;
+    border: 1px solid rgba(255,255,255,.75);
+    background: rgba(11,16,12,.65);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background .2s, color .2s;
+}
+.hero-action:hover { background: #fff; color: #0b100c; }
+.hero-action:focus-visible, .menu-toggle:focus-visible, #site-nav a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 6px;
+}
+.project-card { display: block; }
+.project-arrow { display: inline-block; font-family: var(--sans); font-size: .55em; vertical-align: middle; transition: transform .25s ease; }
+.project-card:focus-visible, .portfolio-item:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 8px;
+}
+.project-card:focus-visible img, .portfolio-item:focus-visible figure img { transform: scale(1.025); }
+.project-card:is(:hover, :focus-visible) .project-arrow,
+.portfolio-item:focus-visible b { transform: translate(3px, -3px); }
+.project-card:is(:hover, :focus-visible) h3, .portfolio-item:is(:hover, :focus-visible) h3 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .16em;
+}
+#site-nav { overflow-y: auto; }
+@media (min-width: 1100px) {
+    .menu-toggle { display: none; }
+    .site-header { padding-bottom: 18px; background: rgba(11,16,12,.78); }
+    #site-nav {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        gap: clamp(18px, 2vw, 32px);
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        clip-path: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow: visible;
+        transition: none;
+    }
+    #site-nav a {
+        width: auto;
+        padding: 12px 0;
+        border: 0;
+        font: inherit;
+        letter-spacing: .02em;
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+    #site-nav a::before { display: none; }
+    #site-nav a::after { display: block; }
+    #site-nav a:hover, #site-nav a:focus-visible { padding-left: 0; }
+}
+@media (max-width: 900px) {
+    .hero-action { margin-top: 44px; }
+    .hero-copy p { margin-top: 20px; }
+}
+@media (max-height: 700px) and (max-width: 900px) {
+    .hero { min-height: 760px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .project-card img, .portfolio-item figure img, .project-arrow, .portfolio-item b { transition: none; }
+    .project-card:is(:hover, :focus-visible) img, .portfolio-item:is(:hover, :focus-visible) figure img,
+    .project-card:is(:hover, :focus-visible) .project-arrow, .portfolio-item:is(:hover, :focus-visible) b { transform: none; }
+}
+
+/* Match the homepage's frosted header on every inner page. */
+body:not(.menu-open) .inner-header {
+    background: rgba(17, 22, 18, .82);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+/* Studio image balances the heading without changing the reading order. */
+.studio-heading-row { display: grid; grid-template-columns: 1.55fr 1fr; align-items: center; gap: clamp(32px, 5vw, 85px); }
+.studio-image { margin: 0; aspect-ratio: 1.3; overflow: hidden; }
+.studio-image img { width: 100%; height: 100%; object-fit: cover; }
+.stats [data-count-to] { font-variant-numeric: tabular-nums; }
+@media (max-width: 1000px) {
+    .studio-heading-row { grid-template-columns: 1fr; }
+    .studio-image { width: 100%; max-width: 620px; aspect-ratio: 1.6; }
+}
+
+/* Subtle feedback for career accordions. */
+.job-card summary { transition: background-color .2s ease; }
+.job-card summary:hover, .job-card summary:focus-visible { background: rgba(17,22,18,.045); }
+.job-card summary:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+.job-card summary h3 { transition: transform .25s ease; }
+.job-card summary:hover h3 { transform: translateX(5px); }
+.job-card summary b::after {
+    content: '+';
+    display: inline-block;
+    margin-left: 9px;
+    font-size: 16px;
+    vertical-align: middle;
+    transition: transform .3s ease;
+}
+.job-card[open] summary b::after { content: '+'; transform: rotate(45deg); }
+.job-card[data-expanded="false"] summary b::after { transform: rotate(0); }
+@media (prefers-reduced-motion: reduce) {
+    .job-card summary, .job-card summary h3, .job-card summary b::after { transition: none; }
+    .job-card summary:hover h3 { transform: none; }
+}
+
+/* Keep the homepage navigation clear while it overlays the hero. */
+.hero > .site-header:not(.is-scrolled) {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 }
