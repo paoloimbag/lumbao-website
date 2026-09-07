@@ -1,0 +1,34 @@
+import {build} from 'esbuild';
+import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const routes=JSON.parse(await readFile(path.join(root,'src/routes.json'),'utf8'));
+const dist=path.join(root,'dist'), scratch=path.join(root,'.build');
+await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});await mkdir(scratch,{recursive:true});
+await cp(path.join(root,'public/assets'),path.join(dist,'assets'),{recursive:true});
+await cp(path.join(root,'src/style.css'),path.join(dist,'style.css'));
+const entries={};
+for(const route of routes){
+ const key=route.route==='/'?'home':route.route.slice(1);
+ const entry=path.join(scratch,key+'.jsx');
+ await writeFile(entry,`import React from 'react';import {hydrateRoot} from 'react-dom/client';import App from '../src/App.jsx';import Page from '../src/pages/${route.name}.jsx';hydrateRoot(document.getElementById('root'),<App Page={Page}/>);`);
+ entries[key]=entry;
+}
+const result=await build({entryPoints:entries,outdir:path.join(dist,'build'),entryNames:'[name]-[hash]',chunkNames:'shared-[hash]',bundle:true,splitting:true,format:'esm',minify:true,metafile:true,jsx:'automatic',target:['es2020'],define:{'process.env.NODE_ENV':'"production"'}});
+const renderEntry=path.join(scratch,'render.jsx');
+await writeFile(renderEntry,`import React from 'react';import {renderToString} from 'react-dom/server';import App from '../src/App.jsx';${routes.map(r=>`import ${r.name} from '../src/pages/${r.name}.jsx';`).join('')}const pages={${routes.map(r=>`${JSON.stringify(r.route)}:${r.name}`).join(',')}};export function render(route){return renderToString(<App Page={pages[route]}/>);}`);
+await build({entryPoints:[renderEntry],outfile:path.join(scratch,'render.mjs'),platform:'node',format:'esm',bundle:true,packages:'external',jsx:'automatic'});
+const {render}=await import(pathToFileURL(path.join(scratch,'render.mjs')).href+`?v=${Date.now()}`);
+const escape=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+for(const route of routes){
+ const key=route.route==='/'?'home':route.route.slice(1);
+ const output=Object.entries(result.metafile.outputs).find(([,info])=>info.entryPoint&&path.resolve(info.entryPoint)===entries[key]);
+ if(!output)throw Error('Missing client entry '+key);
+ const script='/'+path.relative(dist,path.resolve(output[0])).split(path.sep).join('/');
+ const markup=render(route.route);
+ const html=`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${escape(route.title)}</title><meta name="description" content="${escape(route.description)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:ital,wght@0,500;1,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/style.css"><noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript></head><body class="${escape(route.bodyClass)}"><div id="root">${markup}</div><script type="module" src="${script}"></script>${process.env.LUMBAO_DEV ? '<script src="/__dev/client.js"></script>' : ''}</body></html>`;
+ await writeFile(path.join(dist,(route.route==='/'?'index':key)+'.html'),html);
+}
+await writeFile(path.join(scratch,'client-metafile.json'),JSON.stringify(result.metafile,null,2));
+console.log(`Built ${routes.length} React pages with prerendered HTML and shared, hashed JavaScript.`);

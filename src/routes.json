@@ -1,0 +1,93 @@
+[
+  {
+    "route": "/about",
+    "name": "About",
+    "title": "About \u2014 Lumbao Architects",
+    "description": "Meet the multidisciplinary studio behind Lumbao Architects and learn how the practice turns ambitious ideas into enduring places.",
+    "bodyClass": "inner-page"
+  },
+  {
+    "route": "/careers",
+    "name": "Careers",
+    "title": "Careers \u2014 Lumbao Architects",
+    "description": "Explore sample career opportunities at Lumbao Architects in Toronto and Texas.",
+    "bodyClass": "inner-page careers-page"
+  },
+  {
+    "route": "/case-studies",
+    "name": "CaseStudies",
+    "title": "Case Studies \u2014 Lumbao Architects",
+    "description": "Explore selected Lumbao Architects projects across mixed-use, residential, and waterfront development.",
+    "bodyClass": "inner-page case-page"
+  },
+  {
+    "route": "/contact",
+    "name": "Contact",
+    "title": "Contact \u2014 Lumbao Architects",
+    "description": "Start a project or get in touch with Lumbao Architects in Toronto and Texas.",
+    "bodyClass": "inner-page contact-page"
+  },
+  {
+    "route": "/gallery",
+    "name": "Gallery",
+    "title": "Project Gallery \u2014 Lumbao Architects",
+    "description": "Explore the project image gallery from Lumbao Architects.",
+    "bodyClass": "inner-page gallery-page"
+  },
+  {
+    "route": "/",
+    "name": "Home",
+    "title": "Lumbao Architects",
+    "description": "Lumbao Architects creates enduring residential, commercial, industrial, and mixed-use spaces.",
+    "bodyClass": ""
+  },
+  {
+    "route": "/project-dundas",
+    "name": "ProjectDundas",
+    "title": "Dundas \u2014 Lumbao Architects",
+    "description": "Dundas mixed-use project by Lumbao Architects.",
+    "bodyClass": "inner-page project-detail-page"
+  },
+  {
+    "route": "/project-elm",
+    "name": "ProjectElm",
+    "title": "Elm \u2014 Lumbao Architects",
+    "description": "Elm industrial project by Lumbao Architects.",
+    "bodyClass": "inner-page project-detail-page"
+  },
+  {
+    "route": "/project-islington",
+    "name": "ProjectIslington",
+    "title": "Islington \u2014 Lumbao Architects",
+    "description": "Islington multi-residential project by Lumbao Architects.",
+    "bodyClass": "inner-page project-detail-page"
+  },
+  {
+    "route": "/project-springbank",
+    "name": "ProjectSpringbank",
+    "title": "Springbank \u2014 Lumbao Architects",
+    "description": "Springbank mixed-use condominium case study by Lumbao Architects.",
+    "bodyClass": "inner-page project-detail-page"
+  },
+  {
+    "route": "/project-wasaga",
+    "name": "ProjectWasaga",
+    "title": "Wasaga Waterfront \u2014 Lumbao Architects",
+    "description": "Wasaga Waterfront mixed-use development case study by Lumbao Architects.",
+    "bodyClass": "inner-page project-detail-page"
+  },
+  {
+    "route": "/projects",
+    "name": "Projects",
+    "title": "Projects \u2014 Lumbao Architects",
+    "description": "Explore residential, mixed-use, waterfront, and industrial projects by Lumbao Architects.",
+    "bodyClass": "inner-page projects-page"
+  },
+  {
+    "route": "/services",
+    "name": "Services",
+    "title": "Services \u2014 Lumbao Architects",
+    "description": "Architecture, planning, interior design, visualization, and project delivery services from Lumbao Architects.",
+    "bodyClass": "inner-page services-page"
+  }
+]

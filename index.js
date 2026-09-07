@@ -3,7 +3,8 @@ const path = require('node:path');
 const fs = require('node:fs');
 const { brotliCompressSync, gzipSync } = require('node:zlib');
 const app = express();
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'dist');
+if (!fs.existsSync(publicDir)) throw new Error('Run npm run build before starting the server.');
 const production = process.env.NODE_ENV === 'production';
 const documents = new Map();
 
@@ -18,11 +19,19 @@ app.use((req, res, next) => {
     res.redirect(308, destination + (queryIndex < 0 ? '' : req.originalUrl.slice(queryIndex)));
 });
 if (production) {
-    for (const name of fs.readdirSync(publicDir)) {
-        if (!/\.(html|css|js)$/.test(name)) continue;
-        const content = fs.readFileSync(path.join(publicDir, name));
-        documents.set(`/${name}`, { identity: content, br: brotliCompressSync(content), gzip: gzipSync(content) });
-    }
+    const cacheTextFiles = (directory, prefix = '') => {
+        for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+            const relative = prefix + '/' + entry.name;
+            if (entry.isDirectory()) {
+                if (entry.name === 'build') cacheTextFiles(path.join(directory, entry.name), relative);
+                continue;
+            }
+            if (!/\.(html|css|js)$/.test(entry.name)) continue;
+            const content = fs.readFileSync(path.join(directory, entry.name));
+            documents.set(relative, { identity: content, br: brotliCompressSync(content), gzip: gzipSync(content) });
+        }
+    };
+    cacheTextFiles(publicDir);
     app.use((req, res, next) => {
         if (!['GET', 'HEAD'].includes(req.method) || req.headers.range) return next();
         const name = req.path === '/' ? '/index.html' :
@@ -33,7 +42,7 @@ if (production) {
         const encoding = req.acceptsEncodings('br', 'gzip', 'identity');
         if (!encoding) return res.sendStatus(406);
         if (encoding !== 'identity') res.set('Content-Encoding', encoding);
-        res.set('Cache-Control', 'public, max-age=0, must-revalidate');
+        res.set('Cache-Control', name.startsWith('/build/') ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate');
         res.type(path.extname(name));
         res.send(document[encoding]);
     });
@@ -45,11 +54,16 @@ app.use(express.static(publicDir, {
     extensions: ['html'],
     maxAge: production ? '1h' : 0,
     setHeaders(res, file) {
+        if (production && file.startsWith(path.join(publicDir, 'build') + path.sep)) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+            return;
+        }
         if (/\.(html|css|js)$/.test(file)) res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
     }
 }));
 if (require.main === module) {
     const port = process.env.PORT || 3000;
-    app.listen(port, () => console.log(`Lumbao is running at http://localhost:${port}`));
+    const server = app.listen(port, '127.0.0.1', () => console.log(`Lumbao React is running at http://localhost:${port}`));
+    server.on('error', error => { console.error(error.message); process.exitCode = 1; });
 }
 module.exports = app;

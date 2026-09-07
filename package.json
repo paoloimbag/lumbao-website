@@ -1,17 +1,16 @@
 {
   "name": "lumbao",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Lumbao Architects — prerendered React website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "node --watch index.js",
-    "start:production": "NODE_ENV=production node index.js"
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node index.js",
+    "dev": "node scripts/dev.mjs",
+    "start:production": "NODE_ENV=production node index.js",
+    "test": "npm run build && node --test tests/*.test.cjs"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "engines": {"node": ">=18.15"},
+  "dependencies": {"express": "^5.2.1", "react": "^19.2.0", "react-dom": "^19.2.0"},
+  "devDependencies": {"esbuild": "^0.25.0"}
 }
