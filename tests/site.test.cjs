@@ -8,7 +8,7 @@ const ready=new Promise((resolve,reject)=>{server=app.listen(0,'127.0.0.1',()=>{
 after(()=>{server.close();server.closeAllConnections();});
 test('all routes are prerendered with original metadata and valid local resources',async()=>{
  await ready;
- for(const page of routes){const response=await fetch(base+page.route);assert.equal(response.status,200,page.route);const html=await response.text();assert.ok(html.includes(`<title>${page.title}</title>`));assert.match(html,/<h1[ >]/);assert.match(html,/id="root"/);assert.match(html,/type="module"/);assert.ok(!html.includes('/site.js'));
+ for(const page of routes){const response=await fetch(base+page.route);assert.equal(response.status,page.route==='/404'?404:200,page.route);const html=await response.text();assert.ok(html.includes(`<title>${page.title}</title>`));assert.match(html,/<h1[ >]/);assert.match(html,/id="root"/);assert.match(html,/type="module"/);assert.ok(!html.includes('/site.js'));
   for(const match of html.matchAll(/(?:src|poster|href)="(\/[^"?#]*)"/g)){const url=decodeURIComponent(match[1]);if(url==='/')continue;const local=path.join(__dirname,'../dist',url);assert.ok(fs.existsSync(local)||fs.existsSync(local+'.html'),`${page.route}: missing ${url}`);}
  }
 });
@@ -17,3 +17,12 @@ test('compression and missing routes work',async()=>{await ready;for(const encod
 test('media range requests remain available',async()=>{await ready;const r=await fetch(base+'/assets/Firefly%20Cinematic%20Orbit%20Walkthrough_1.mp4',{headers:{Range:'bytes=0-99'}});assert.equal(r.status,206);assert.equal((await r.arrayBuffer()).byteLength,100);});
 
 test('hashed React bundles are compressed and immutable in production',async()=>{await ready;const html=await (await fetch(base)).text();const script=html.match(/<script type="module" src="([^"]+)"/)[1];const r=await fetch(base+script,{headers:{'Accept-Encoding':'br'}});assert.equal(r.status,200);assert.equal(r.headers.get('content-encoding'),'br');assert.match(r.headers.get('cache-control'),/immutable/);await r.text();});
+
+test('launch metadata, discovery files and custom error page',async()=>{
+ await ready;
+ const html=await (await fetch(base+'/services')).text();
+ assert.match(html,/property="og:image"/);assert.match(html,/rel="canonical"/);assert.match(html,/rel="icon"/);
+ const sitemap=await (await fetch(base+'/sitemap.xml')).text();assert.match(sitemap,/<loc>https:\/\/www.lumbao.com\/privacy<\/loc>/);assert.ok(!sitemap.includes('/404'));
+ assert.match(await (await fetch(base+'/robots.txt')).text(),/Sitemap:/);
+ const missing=await fetch(base+'/missing/deep/page');assert.equal(missing.status,404);assert.match(await missing.text(),/A different/);
+});

@@ -12,6 +12,7 @@ app.disable('x-powered-by');
 const pageNames = new Set(fs.readdirSync(publicDir).filter(name => name.endsWith('.html')));
 app.use((req, res, next) => {
     if (!['GET', 'HEAD'].includes(req.method)) return next();
+    if (req.path === '/404') res.status(404);
     const page = req.path.slice(1);
     if (!pageNames.has(page)) return next();
     const destination = page === 'index.html' ? '/' : '/' + page.slice(0, -5);
@@ -36,6 +37,7 @@ if (production) {
         if (!['GET', 'HEAD'].includes(req.method) || req.headers.range) return next();
         const name = req.path === '/' ? '/index.html' :
             (pageNames.has(req.path.slice(1) + '.html') ? req.path + '.html' : req.path);
+        if (name === '/404.html') res.status(404);
         const document = documents.get(name);
         if (!document) return next();
         res.vary('Accept-Encoding');
@@ -61,6 +63,7 @@ app.use(express.static(publicDir, {
         if (/\.(html|css|js)$/.test(file)) res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
     }
 }));
+app.use((req, res) => { res.status(404).sendFile(path.join(publicDir, '404.html')); });
 if (require.main === module) {
     const port = process.env.PORT || 3000;
     const server = app.listen(port, '127.0.0.1', () => console.log(`Lumbao React is running at http://localhost:${port}`));

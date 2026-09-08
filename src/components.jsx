@@ -55,7 +55,7 @@ export function SiteHeader({ home, active }) {
         <a className="brand" href={home?'#home':'/'} aria-label="Lumbao Architects home"><img src="/assets/logo.svg" alt="" /><span>Lumbao Architects</span></a>
         <button ref={menu} className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>{open?'Close':'Menu'}</button>
         <nav ref={nav} id="site-nav" className={open?'is-open':''} aria-label="Main navigation">
-            {links.map(([href,label]) => <a key={href} href={href} aria-current={active===href || (href==='/projects' && active.startsWith('/project-'))?'page':undefined} onClick={() => setOpen(false)}>{label}</a>)}
+            {links.map(([href,label]) => <a key={href} href={href} aria-current={active===href || (href==='/projects' && (active || "").startsWith('/project-'))?'page':undefined} onClick={() => setOpen(false)}>{label}</a>)}
         </nav>
     </header>;
 }

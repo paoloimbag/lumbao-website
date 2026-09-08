@@ -38,7 +38,7 @@ export default function ProjectSpringbank() { return (<><a className="skip-link"
 <p className="eyebrow">{"Project gallery"}</p>
 <p>{"Click any image to view it larger."}</p>
 </div>
-<div className="detail-gallery-grid"><LightboxButton><img loading="lazy" src="/assets/springbank-01.avif" alt="Springbank exterior perspective" /></LightboxButton><LightboxButton><img src="/assets/springbank-02.gif" alt="Springbank animated exterior study" loading="lazy" /></LightboxButton><LightboxButton><img src="/assets/springbank-03.gif" alt="Springbank animated design study" loading="lazy" /></LightboxButton></div>
+<div className="detail-gallery-grid"><LightboxButton><img loading="lazy" src="/assets/springbank-01.avif" alt="Springbank exterior perspective" /></LightboxButton><LightboxButton><img src="/assets/springbank-02.webp" alt="Springbank animated exterior study" loading="lazy" /></LightboxButton><LightboxButton><img src="/assets/springbank-03.webp" alt="Springbank animated design study" loading="lazy" /></LightboxButton></div>
 </section>
 <nav className="project-pagination" aria-label="Project navigation"><a href="/project-dundas">{"← Previous:\n                Dundas"}</a><a href="/project-wasaga">{"Next: Wasaga →"}</a></nav>
 </main>

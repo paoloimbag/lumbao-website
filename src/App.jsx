@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import CookieNotice from './CookieNotice.jsx';
 import {SiteProvider} from './components.jsx';
 
 function useReveals() {
@@ -26,5 +27,5 @@ function useReveals() {
 }
 export default function App({Page}) {
     useReveals();
-    return <SiteProvider><Page /></SiteProvider>;
+    return <SiteProvider><Page /><CookieNotice /></SiteProvider>;
 }

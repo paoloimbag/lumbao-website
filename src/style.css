@@ -236,7 +236,7 @@ nav {
 #site-nav a::before {
     display: inline-block;
     width: clamp(42px, 5vw, 92px);
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.72);
     content: '0' counter(menu-item);
     font-family: var(--mono);
     font-size: 10px;
@@ -561,13 +561,13 @@ body.menu-open { overflow: hidden; }
 .site-footer .brand { align-self: start; }
 .site-footer .brand img { width: 45px; height: 45px; }
 .site-footer p { margin: 0; }
-.footer-office > p, .footer-connect > p { margin-bottom: 22px; color: rgba(255,255,255,.48); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+.footer-office > p, .footer-connect > p { margin-bottom: 22px; color: rgba(255,255,255,.72); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
 .footer-office address { color: rgba(255,255,255,.82); font-size: 14px; font-style: normal; line-height: 1.7; }
 .footer-nav { position: static; display: flex; align-items: flex-start; flex-direction: column; gap: 11px; padding: 0; color: #fff; background: none; box-shadow: none; font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
 .footer-connect { display: flex; align-items: flex-start; flex-direction: column; gap: 10px; font-size: 13px; }
 .footer-connect > p { margin-bottom: 12px; }
 .footer-connect a { padding-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,.35); }
-.footer-bottom { display: grid; grid-template-columns: 1fr .7fr 1fr auto; gap: 30px; padding: 24px 0 30px; border-top: 1px solid rgba(255,255,255,.28); color: rgba(255,255,255,.5); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
+.footer-bottom { display: grid; grid-template-columns: 1fr .7fr 1fr auto; gap: 30px; padding: 24px 0 30px; border-top: 1px solid rgba(255,255,255,.28); color: rgba(255,255,255,.72); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
 .footer-bottom a { color: #fff; }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -923,7 +923,7 @@ body.menu-open { overflow: hidden; }
 .service-process li p { max-width: 540px; margin: 0; color: rgba(255,255,255,.7); line-height: 1.6; }
 .service-project-strip { padding: var(--page-pad); background: var(--warm); }
 .service-project-strip a { position: relative; display: block; height: min(60vw, 820px); overflow: hidden; color: #fff; }
-.service-project-strip a::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.48)); }
+.service-project-strip a::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.68) 55%); }
 .service-project-strip img { height: 100%; object-fit: cover; transition: transform .7s ease; }
 .service-project-strip a:hover img { transform: scale(1.025); }
 .service-project-strip span, .service-project-strip strong { position: absolute; z-index: 1; bottom: 35px; }
@@ -950,7 +950,7 @@ body.menu-open { overflow: hidden; }
 .project-inquiry input::placeholder, .project-inquiry textarea::placeholder { color: rgba(255,255,255,.45); }
 .project-inquiry select option { color: #111; }
 .project-inquiry .button { justify-self: start; margin-top: 20px; color: var(--ink); background: #fff; }
-.form-note { margin: -15px 0 0; color: rgba(255,255,255,.5); font-size: 11px; }
+.form-note { margin: -15px 0 0; color: rgba(255,255,255,.72); font-size: 11px; }
 .contact-secondary { display: grid; grid-template-columns: 1fr .7fr; gap: 10vw; align-items: end; padding: clamp(100px, 13vw, 210px) var(--page-pad); background: var(--warm); }
 .contact-secondary > div:last-child > p { max-width: 520px; margin: 0 0 45px; font-size: 18px; line-height: 1.6; }
 
@@ -1195,3 +1195,26 @@ body:not(.menu-open) .inner-header {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
 }
+
+/* Services category navigation and supporting descriptions. */
+.services-section-links { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 32px; }
+.service-supplement-copy { align-self: center; max-width: 640px; }
+.service-supplement-copy p { margin: 0; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.65; }
+#service-list, #architectural-services, #interior-services, #project-management { scroll-margin-top: 110px; }
+
+/* Launch essentials */
+.legal-page {padding:160px var(--page-pad) 100px; background:#f7f6f2; min-height:70vh;}
+.legal-page h1 {font-family:var(--serif);font-weight:400;font-size:clamp(54px,7vw,112px);line-height:1;max-width:1000px;margin:24px 0;}
+.legal-page section {max-width:760px;margin-top:40px;}
+.legal-page h2 {font-size:24px;line-height:1.3;}
+.legal-page p {max-width:760px;line-height:1.7;overflow-wrap:anywhere;}
+.not-found .text-link {margin:24px;display:inline-block;}
+.footer-bottom {display:flex;flex-wrap:wrap;gap:20px;}
+.footer-bottom button {font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;}
+.cookie-notice {position:fixed;bottom:20px;left:20px;right:20px;max-width:650px;z-index:1000;padding:24px;display:flex;gap:24px;align-items:center;background:#f7f6f2;color:#111612;border:1px solid #888;box-shadow:0 8px 40px #0003;}
+.cookie-notice p {font-size:14px;line-height:1.6;margin:8px 0 0;}
+.cookie-notice a {text-decoration:underline;}
+.cookie-notice button {flex-shrink:0;background:#111612;color:white;padding:14px 20px;border:0;cursor:pointer;min-height:44px;}
+:focus-visible {outline:2px solid currentColor;outline-offset:5px;}
+@media(max-width:620px){.cookie-notice{left:12px;right:12px;bottom:12px;padding:18px;gap:12px;flex-wrap:wrap;}.cookie-notice button{width:100%;}.footer-bottom{align-items:flex-start;}}
+@media(max-width:620px){.case-study{grid-template-columns:34px minmax(0,1fr);}.case-title{min-width:0;}.case-title h2{font-size:clamp(44px,10vw,75px);overflow-wrap:anywhere;}}

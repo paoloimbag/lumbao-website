@@ -50,12 +50,12 @@ export default function About() { return (<>
 </div>
 <div className="team-grid">
 <article className="team-card">
-<div className="team-monogram"><img className="team-portrait" src="/assets/rommel-lumbao-1080.webp" data-original-src="/assets/rommel-lumbao.jpg" srcSet="/assets/rommel-lumbao-640.webp 640w, /assets/rommel-lumbao-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="" loading="lazy" /></div>
+<div className="team-monogram"><img className="team-portrait" src="/assets/rommel-lumbao-1080.webp" data-original-src="/assets/rommel-lumbao.jpg" srcSet="/assets/rommel-lumbao-640.webp 640w, /assets/rommel-lumbao-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="Rommel Lumbao" loading="lazy" /></div>
 <h3>{"Rommel A. Lumbao"}</h3>
 <p>{"Principal Architect"}</p><a href="https://ca.linkedin.com/in/rommel-lumbao-uap-mraic-ncarb-nlaa-aibc-aanb-oaa-apec-ar-08557456" target="_blank" rel="noreferrer">{"LinkedIn ↗"}</a>
 </article>
 <article className="team-card">
-<div className="team-monogram"><img className="team-portrait" src="/assets/cid-anthony-santos-1080.webp" data-original-src="/assets/cid-anthony-santos.jpg" srcSet="/assets/cid-anthony-santos-640.webp 640w, /assets/cid-anthony-santos-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="" loading="lazy" /></div>
+<div className="team-monogram"><img className="team-portrait" src="/assets/cid-anthony-santos-1080.webp" data-original-src="/assets/cid-anthony-santos.jpg" srcSet="/assets/cid-anthony-santos-640.webp 640w, /assets/cid-anthony-santos-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="Cid Anthony Santos" loading="lazy" /></div>
 <h3>{"Cid Anthony Santos"}</h3>
 <p>{"Architectural & Urban Designer"}</p><a href="https://ca.linkedin.com/in/cidanthonysantos" target="_blank" rel="noreferrer">{"LinkedIn ↗"}</a>
 </article>
@@ -65,12 +65,12 @@ export default function About() { return (<>
 <p>{"Architectural Technologist"}</p><a href="https://ca.linkedin.com/in/christinedilidili" target="_blank" rel="noreferrer">{"LinkedIn ↗"}</a>
 </article>
 <article className="team-card">
-<div className="team-monogram"><img className="team-portrait" src="/assets/john-paul-efe-1080.webp" srcSet="/assets/john-paul-efe-640.webp 640w, /assets/john-paul-efe-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="" loading="lazy" /></div>
+<div className="team-monogram"><img className="team-portrait" src="/assets/john-paul-efe-1080.webp" srcSet="/assets/john-paul-efe-640.webp 640w, /assets/john-paul-efe-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="John Paul Efe" loading="lazy" /></div>
 <h3>{"John Paul Efe"}</h3>
 <p>{"Architectural Designer · LEED GA"}</p><a href="https://ca.linkedin.com/in/john-paul-efe-19a37596" target="_blank" rel="noreferrer">{"LinkedIn ↗"}</a>
 </article>
 <article className="team-card">
-<div className="team-monogram"><img className="team-portrait" src="/assets/mary-angeli-adriano-1080.webp" data-original-src="/assets/mary-angeli-adriano.jpg" srcSet="/assets/mary-angeli-adriano-640.webp 640w, /assets/mary-angeli-adriano-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="" loading="lazy" /></div>
+<div className="team-monogram"><img className="team-portrait" src="/assets/mary-angeli-adriano-1080.webp" data-original-src="/assets/mary-angeli-adriano.jpg" srcSet="/assets/mary-angeli-adriano-640.webp 640w, /assets/mary-angeli-adriano-1080.webp 1080w" sizes="(max-width: 700px) 100vw, 70vw" width="1080" height="1350" decoding="async" alt="Mary Angeli Adriano" loading="lazy" /></div>
 <h3>{"Mary Angeli Adriano"}</h3>
 <p>{"Architectural Technologist"}</p><a href="https://www.linkedin.com/in/mary-angeli-adriano-37b2581b6/" target="_blank" rel="noreferrer">{"LinkedIn ↗"}</a>
 </article>

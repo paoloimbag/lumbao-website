@@ -16,7 +16,7 @@ export default function Gallery() { return (<><a className="skip-link" href="#ma
 <h2 id="gallery-title">{"Project images"}</h2><a className="text-link" href="/projects">{"View project index\n                    ↗"}</a>
 </div>
 <div className="gallery-mosaic">
-<figure className="gallery-tile gallery-tile-wide"><LightboxButton><img loading="lazy" src="/assets/gallery-springbank.gif" alt="Springbank exterior architectural visualization" /></LightboxButton>
+<figure className="gallery-tile gallery-tile-wide"><LightboxButton><img loading="lazy" src="/assets/gallery-springbank.webp" alt="Springbank exterior architectural visualization" /></LightboxButton>
 <figcaption><span>{"01"}</span><strong>{"Springbank"}</strong></figcaption>
 </figure>
 <figure className="gallery-tile"><LightboxButton><img src="/assets/gallery-wasaga-lux-1920.webp" data-original-src="/assets/gallery-wasaga-lux.jpg" srcSet="/assets/gallery-wasaga-lux-640.webp 640w, /assets/gallery-wasaga-lux-1280.webp 1280w, /assets/gallery-wasaga-lux-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="2000" height="1125" decoding="async" alt="Wasaga Lux architectural visualization" loading="lazy" /></LightboxButton>
@@ -28,7 +28,7 @@ export default function Gallery() { return (<><a className="skip-link" href="#ma
 <figure className="gallery-tile"><LightboxButton><img src="/assets/gallery-brock-1920.webp" data-original-src="/assets/gallery-brock.jpg" srcSet="/assets/gallery-brock-640.webp 640w, /assets/gallery-brock-1280.webp 1280w, /assets/gallery-brock-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="2000" height="1000" decoding="async" alt="Brock project architectural visualization" loading="lazy" /></LightboxButton>
 <figcaption><span>{"04"}</span><strong>{"Brock"}</strong></figcaption>
 </figure>
-<figure className="gallery-tile gallery-tile-tall"><LightboxButton><img src="/assets/gallery-waterfront.gif" alt="Wasaga Waterfront architectural visualization" loading="lazy" /></LightboxButton>
+<figure className="gallery-tile gallery-tile-tall"><LightboxButton><img src="/assets/gallery-waterfront.webp" alt="Wasaga Waterfront architectural visualization" loading="lazy" /></LightboxButton>
 <figcaption><span>{"05"}</span><strong>{"Wasaga Waterfront"}</strong></figcaption>
 </figure>
 <figure className="gallery-tile"><LightboxButton><img src="/assets/gallery-gowan-1545.webp" data-original-src="/assets/gallery-gowan.jpg" srcSet="/assets/gallery-gowan-640.webp 640w, /assets/gallery-gowan-1280.webp 1280w, /assets/gallery-gowan-1545.webp 1545w" sizes="(max-width: 700px) 100vw, 70vw" width="1545" height="2000" decoding="async" alt="Gowan architectural project" loading="lazy" /></LightboxButton>
@@ -37,7 +37,7 @@ export default function Gallery() { return (<><a className="skip-link" href="#ma
 <figure className="gallery-tile"><LightboxButton><img src="/assets/gallery-weston-1920.webp" data-original-src="/assets/gallery-weston.jpg" srcSet="/assets/gallery-weston-640.webp 640w, /assets/gallery-weston-1280.webp 1280w, /assets/gallery-weston-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="2000" height="2000" decoding="async" alt="Weston architectural project" loading="lazy" /></LightboxButton>
 <figcaption><span>{"07"}</span><strong>{"Weston"}</strong></figcaption>
 </figure>
-<figure className="gallery-tile gallery-tile-wide"><LightboxButton><img src="/assets/gallery-mccowan-02.gif" alt="McCowan architectural study" loading="lazy" /></LightboxButton>
+<figure className="gallery-tile gallery-tile-wide"><LightboxButton><img src="/assets/gallery-mccowan-02.webp" alt="McCowan architectural study" loading="lazy" /></LightboxButton>
 <figcaption><span>{"08"}</span><strong>{"McCowan · Study"}</strong></figcaption>
 </figure>
 <figure className="gallery-tile"><LightboxButton><img src="/assets/gallery-centre-1920.webp" data-original-src="/assets/gallery-centre.jpg" srcSet="/assets/gallery-centre-640.webp 640w, /assets/gallery-centre-1280.webp 1280w, /assets/gallery-centre-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="2000" height="1125" decoding="async" alt="Centre Street architectural project" loading="lazy" /></LightboxButton>

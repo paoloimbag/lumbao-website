@@ -15,7 +15,7 @@ export default function Footer(){return (<footer className="site-footer">
 </div>
 </div>
 <div className="footer-bottom">
-<p>{"© 2026 Lumbao Architects"}</p>
+<p>{"© 2026 Lumbao Architects"}</p><a href="/privacy">Privacy Policy</a><a href="/terms">Terms and Conditions</a><button type="button" onClick={()=>window.dispatchEvent(new Event("lumbao-cookie-settings"))}>Cookie settings</button>
 <p>{"Toronto · Texas"}</p>
 <p>{"Architecture shaped with care and clarity."}</p><a href="#main-content">{"Back to top ↑"}</a>
 </div>

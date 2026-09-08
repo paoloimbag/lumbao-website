@@ -2,35 +2,35 @@
   {
     "route": "/about",
     "name": "About",
-    "title": "About \u2014 Lumbao Architects",
+    "title": "About — Lumbao Architects",
     "description": "Meet the multidisciplinary studio behind Lumbao Architects and learn how the practice turns ambitious ideas into enduring places.",
     "bodyClass": "inner-page"
   },
   {
     "route": "/careers",
     "name": "Careers",
-    "title": "Careers \u2014 Lumbao Architects",
+    "title": "Careers — Lumbao Architects",
     "description": "Explore sample career opportunities at Lumbao Architects in Toronto and Texas.",
     "bodyClass": "inner-page careers-page"
   },
   {
     "route": "/case-studies",
     "name": "CaseStudies",
-    "title": "Case Studies \u2014 Lumbao Architects",
+    "title": "Case Studies — Lumbao Architects",
     "description": "Explore selected Lumbao Architects projects across mixed-use, residential, and waterfront development.",
     "bodyClass": "inner-page case-page"
   },
   {
     "route": "/contact",
     "name": "Contact",
-    "title": "Contact \u2014 Lumbao Architects",
+    "title": "Contact — Lumbao Architects",
     "description": "Start a project or get in touch with Lumbao Architects in Toronto and Texas.",
     "bodyClass": "inner-page contact-page"
   },
   {
     "route": "/gallery",
     "name": "Gallery",
-    "title": "Project Gallery \u2014 Lumbao Architects",
+    "title": "Project Gallery — Lumbao Architects",
     "description": "Explore the project image gallery from Lumbao Architects.",
     "bodyClass": "inner-page gallery-page"
   },
@@ -44,50 +44,71 @@
   {
     "route": "/project-dundas",
     "name": "ProjectDundas",
-    "title": "Dundas \u2014 Lumbao Architects",
+    "title": "Dundas — Lumbao Architects",
     "description": "Dundas mixed-use project by Lumbao Architects.",
     "bodyClass": "inner-page project-detail-page"
   },
   {
     "route": "/project-elm",
     "name": "ProjectElm",
-    "title": "Elm \u2014 Lumbao Architects",
+    "title": "Elm — Lumbao Architects",
     "description": "Elm industrial project by Lumbao Architects.",
     "bodyClass": "inner-page project-detail-page"
   },
   {
     "route": "/project-islington",
     "name": "ProjectIslington",
-    "title": "Islington \u2014 Lumbao Architects",
+    "title": "Islington — Lumbao Architects",
     "description": "Islington multi-residential project by Lumbao Architects.",
     "bodyClass": "inner-page project-detail-page"
   },
   {
     "route": "/project-springbank",
     "name": "ProjectSpringbank",
-    "title": "Springbank \u2014 Lumbao Architects",
+    "title": "Springbank — Lumbao Architects",
     "description": "Springbank mixed-use condominium case study by Lumbao Architects.",
     "bodyClass": "inner-page project-detail-page"
   },
   {
     "route": "/project-wasaga",
     "name": "ProjectWasaga",
-    "title": "Wasaga Waterfront \u2014 Lumbao Architects",
+    "title": "Wasaga Waterfront — Lumbao Architects",
     "description": "Wasaga Waterfront mixed-use development case study by Lumbao Architects.",
     "bodyClass": "inner-page project-detail-page"
   },
   {
     "route": "/projects",
     "name": "Projects",
-    "title": "Projects \u2014 Lumbao Architects",
+    "title": "Projects — Lumbao Architects",
     "description": "Explore residential, mixed-use, waterfront, and industrial projects by Lumbao Architects.",
     "bodyClass": "inner-page projects-page"
   },
   {
     "route": "/services",
     "name": "Services",
-    "title": "Services \u2014 Lumbao Architects",
-    "description": "Architecture, planning, interior design, visualization, and project delivery services from Lumbao Architects.",
+    "title": "Services — Lumbao Architects",
+    "description": "Explore Lumbao Architects’ architectural services, interior design and project management.",
     "bodyClass": "inner-page services-page"
+  },
+  {
+    "route": "/privacy",
+    "name": "Privacy",
+    "title": "Privacy Policy — Lumbao Architects",
+    "description": "How this website handles information, inquiries and browser storage.",
+    "bodyClass": "inner-page"
+  },
+  {
+    "route": "/terms",
+    "name": "Terms",
+    "title": "Terms and Conditions — Lumbao Architects",
+    "description": "Terms for using the Lumbao Architects website.",
+    "bodyClass": "inner-page"
+  },
+  {
+    "route": "/404",
+    "name": "NotFound",
+    "title": "Page not found — Lumbao Architects",
+    "description": "Find your way back to Lumbao Architects.",
+    "bodyClass": "inner-page"
   }
 ]
