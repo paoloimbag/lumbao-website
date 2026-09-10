@@ -4,7 +4,7 @@ export default function Home() { return (<>
 <a className="skip-link" href="#main-content">{"Skip to content"}</a>
 <main id="main-content">
 <section className="hero" id="home">
-<HeroVideo poster="/assets/raw-5-1280.webp" source="/assets/Firefly%20Cinematic%20Orbit%20Walkthrough_1.mp4" />
+<HeroVideo poster="/assets/hero-poster-v1.avif" source="/assets/hero-optimized-v1.mp4" mobileSource="/assets/hero-mobile-v1.mp4" />
 <SiteHeader home={true} active="/" />
 <div className="hero-copy">
 <div className="hero-heading"><h1><span>{"Architecture that shapes"}</span><br /><em>{"legacy."}</em></h1>
@@ -25,10 +25,10 @@ export default function Home() { return (<>
 </div>
 </div>
 <div className="gallery" id="gallery">
-<figure className="gallery-main"><img loading="lazy" src="/assets/raw-2-1920.webp" data-original-src="/assets/raw-2.jpg" srcSet="/assets/raw-2-640.webp 640w, /assets/raw-2-1280.webp 1280w, /assets/raw-2-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="4096" height="4096" decoding="async" alt="Sunlit living room with green sofa and gallery wall" /></figure>
-<figure><img loading="lazy" src="/assets/raw-7-1920.webp" data-original-src="/assets/raw-7.jpg" srcSet="/assets/raw-7-640.webp 640w, /assets/raw-7-1280.webp 1280w, /assets/raw-7-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="3840" height="2160" decoding="async" alt="Living room with deep green feature wall" />
+<figure className="gallery-main"><img loading="lazy" src="/assets/home-raw-2-1280.avif" data-original-src="/assets/raw-2.jpg" srcSet="/assets/home-raw-2-480.avif 480w, /assets/home-raw-2-800.avif 800w, /assets/home-raw-2-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 48px), 52vw" width="4096" height="4096" decoding="async" alt="Sunlit living room with green sofa and gallery wall" /></figure>
+<figure><img loading="lazy" src="/assets/home-raw-7-1280.avif" data-original-src="/assets/raw-7.jpg" srcSet="/assets/home-raw-7-480.avif 480w, /assets/home-raw-7-800.avif 800w, /assets/home-raw-7-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 48px), 36vw" width="3840" height="2160" decoding="async" alt="Living room with deep green feature wall" />
 </figure>
-<figure><img loading="lazy" src="/assets/raw-8-1920.webp" data-original-src="/assets/raw-8.jpg" srcSet="/assets/raw-8-640.webp 640w, /assets/raw-8-1280.webp 1280w, /assets/raw-8-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 70vw" width="3840" height="3840" decoding="async" alt="Warm living room with fireplace and plants" />
+<figure><img loading="lazy" src="/assets/home-raw-8-1280.avif" data-original-src="/assets/raw-8.jpg" srcSet="/assets/home-raw-8-480.avif 480w, /assets/home-raw-8-800.avif 800w, /assets/home-raw-8-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 48px), 36vw" width="3840" height="3840" decoding="async" alt="Warm living room with fireplace and plants" />
 </figure>
 </div>
 </section>
@@ -39,7 +39,7 @@ export default function Home() { return (<>
 <h2>{"Ideas with intent."}<br /><em>{"Details with purpose."}</em></h2>
 </div>
 <figure className="studio-image reveal">
-<img src="/assets/springbank-01.avif" alt="Springbank project façade with glass balconies and landscaped frontage" loading="lazy" decoding="async" />
+<img src="/assets/home-studio-1280.avif" srcSet="/assets/home-studio-480.avif 480w, /assets/home-studio-800.avif 800w, /assets/home-studio-1280.avif 1280w" sizes="(max-width: 1000px) calc(100vw - 48px), 32vw" width="2247" height="1405" alt="Springbank project façade with glass balconies and landscaped frontage" loading="lazy" decoding="async" />
 </figure>
 </div>
 <div className="studio-grid">

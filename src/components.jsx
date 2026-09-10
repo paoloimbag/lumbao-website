@@ -60,15 +60,17 @@ export function SiteHeader({ home, active }) {
     </header>;
 }
 
-export function HeroVideo({poster, source}) {
+export function HeroVideo({poster, source, mobileSource}) {
     const ref = useRef(null);
     useEffect(() => {
         const video = ref.current, hero = video.closest('.hero');
         const reduced = matchMedia(reduceQuery);
         let visible = true, frame;
+        let ready = document.readyState === "complete";
+        const selectedSource = mobileSource && matchMedia("(max-width: 620px)").matches ? mobileSource : source;
         const sync = () => {
-            if (document.hidden || !visible || reduced.matches || navigator.connection?.saveData) {video.pause();return;}
-            if (!video.getAttribute('src')) {video.src=source;video.load();}
+            if (!ready || document.hidden || !visible || reduced.matches || navigator.connection?.saveData) {video.pause();return;}
+            if (!video.getAttribute('src')) {video.src=selectedSource;video.load();}
             video.play().catch(() => {});
         };
         const scroll = () => {
@@ -76,10 +78,12 @@ export function HeroVideo({poster, source}) {
             frame=requestAnimationFrame(() => {frame=null;const y=reduced.matches?0:Math.min(Math.max(scrollY/hero.offsetHeight,0),1)*72;video.style.setProperty('--parallax-y', `${y}px`);});
         };
         const observer = 'IntersectionObserver' in window ? new IntersectionObserver(([entry]) => {visible=entry.isIntersecting;sync();}) : null;
+        const loaded=()=>{ready=true;sync();};
+        window.addEventListener("load",loaded,{once:true});
         observer?.observe(hero);sync();scroll();
         reduced.addEventListener('change',sync); document.addEventListener('visibilitychange',sync);window.addEventListener('scroll',scroll,{passive:true});
-        return () => {observer?.disconnect();cancelAnimationFrame(frame);video.pause();reduced.removeEventListener('change',sync);document.removeEventListener('visibilitychange',sync);window.removeEventListener('scroll',scroll);};
-    }, [source]);
+        return () => {window.removeEventListener("load",loaded);observer?.disconnect();cancelAnimationFrame(frame);video.pause();reduced.removeEventListener('change',sync);document.removeEventListener('visibilitychange',sync);window.removeEventListener('scroll',scroll);};
+    }, [source, mobileSource]);
     return <video ref={ref} className="hero-video" preload="none" muted loop playsInline poster={poster} aria-hidden="true" />;
 }
 

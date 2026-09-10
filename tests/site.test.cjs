@@ -39,3 +39,17 @@ test('llms.txt serves Markdown with a heading and valid site links',async()=>{
  assert.equal(links.length,routes.filter(page=>page.route!=='/404').length);
  for(const [,url] of links){const pathname=new URL(url).pathname;assert.ok(routes.some(page=>page.route===pathname),url);}
 });
+
+test('homepage uses local fonts and optimized media',async()=>{
+ await ready;
+ const html=await (await fetch(base+'/')).text();
+ assert.ok(!html.includes('fonts.googleapis.com'));
+ assert.match(html,/hero-poster-v1\.avif/);
+ const css=await (await fetch(base+'/style.css')).text();
+ assert.ok(!css.includes('@import'));assert.ok(!css.includes('fonts.gstatic.com'));
+ for(const [,url] of css.matchAll(/url\(["']?(\/assets\/fonts\/[^)"']+)/g))assert.ok(fs.existsSync(path.join(__dirname,'../dist',url)),url);
+ for(const file of ['hero-optimized-v1.mp4','hero-mobile-v1.mp4']){
+ const r=await fetch(base+'/assets/'+file,{headers:{Range:'bytes=0-99'}});assert.equal(r.status,206);assert.equal((await r.arrayBuffer()).byteLength,100);
+ }
+ for(const [,set] of html.matchAll(/srcSet="([^"]+)"/gi))for(const candidate of set.split(',')){const url=candidate.trim().split(/\s+/)[0];assert.ok(fs.existsSync(path.join(__dirname,'../dist',url)),url);}
+});
