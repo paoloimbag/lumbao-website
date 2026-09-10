@@ -36,3 +36,23 @@ console.log(`Built ${routes.length} React pages with prerendered HTML and shared
 
 await writeFile(path.join(dist,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 await writeFile(path.join(dist,"sitemap.xml"),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.filter(r=>r.route!=="/404").map(r=>`<url><loc>${escape(siteUrl+r.route)}</loc></url>`).join("")}</urlset>`);
+
+// Generate discovery content from the same routes as the site so links stay current.
+const llmsOrigin=process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : siteUrl);
+const llmsLinks=routes.filter(page=>page.route!=='/404').map(page=>
+ `- [${page.name==='Home' ? 'Home' : page.title.replace(' — Lumbao Architects','')}](${new URL(page.route,llmsOrigin).href}): ${page.description}`
+).join('\n');
+await writeFile(path.join(dist,'llms.txt'),`# Lumbao Architects
+
+> Lumbao Architects is a multidisciplinary architecture practice working on residential, commercial, industrial and mixed-use spaces.
+
+This website presents the studio, its architectural services and selected projects. Project images may include conceptual renderings. Contact the studio for project-specific information.
+
+## Website pages
+
+${llmsLinks}
+
+## Contact
+
+- [Email the studio](mailto:architects@lumbao.com): Project inquiries and questions.
+`);

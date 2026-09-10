@@ -26,3 +26,16 @@ test('launch metadata, discovery files and custom error page',async()=>{
  assert.match(await (await fetch(base+'/robots.txt')).text(),/Sitemap:/);
  const missing=await fetch(base+'/missing/deep/page');assert.equal(missing.status,404);assert.match(await missing.text(),/A different/);
 });
+
+test('llms.txt serves Markdown with a heading and valid site links',async()=>{
+ await ready;
+ const response=await fetch(base+'/llms.txt');
+ assert.equal(response.status,200);
+ assert.match(response.headers.get('content-type'),/^text\/plain/);
+ const text=await response.text();
+ assert.match(text,/^# Lumbao Architects\s*$/m);
+ assert.ok(!text.includes('<!doctype html>'));
+ const links=[...text.matchAll(/\]\((https?:\/\/[^)]+)\)/g)];
+ assert.equal(links.length,routes.filter(page=>page.route!=='/404').length);
+ for(const [,url] of links){const pathname=new URL(url).pathname;assert.ok(routes.some(page=>page.route===pathname),url);}
+});
